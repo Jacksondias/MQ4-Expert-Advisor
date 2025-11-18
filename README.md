@@ -5,7 +5,20 @@ Golden Retirement EA is a high-performance Expert Advisor designed for MetaTrade
 
 ## Version History
 
-### Version 1.7 (Latest) - Market State Detection & Adaptive Strategy
+### Version 1.8 (Latest) - Automatic Hedging System
+**Release Date:** November 2024
+
+**Major Improvements:**
+- ✅ **Automatic Hedging Protection**: Opens opposite positions to protect against losses
+- ✅ **Drawdown-Based Hedging**: Triggers when floating DD reaches configurable threshold
+- ✅ **Reversal Signal Hedging**: Protects positions when trend reversal detected
+- ✅ **Intelligent Pair Management**: Automatically closes hedge pairs when profitable
+- ✅ **Full Integration**: Works seamlessly with market state detection from v1.7
+- ✅ **Configurable Strategy**: Choose DD-only, reversal-only, or combined approach
+
+[View complete hedging system documentation](HEDGING_SYSTEM_v1.8.md)
+
+### Version 1.7 - Market State Detection & Adaptive Strategy
 **Release Date:** November 2024
 
 **Major Improvements:**
