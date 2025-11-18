@@ -53,6 +53,26 @@ Intelligently manages hedge pairs throughout their lifecycle.
 - Monitors combined profit of pairs
 - Automatically closes pairs when profitable
 - Cleans up inactive hedges
+- **NEW v1.8.1**: Manages orphaned hedges (hedges without primary orders)
+
+### 4. **Orphaned Hedge Management** 🔧 (v1.8.1)
+Automatically handles hedge orders that become isolated.
+
+```mql4
+AutoCloseOrphanedHedges = true  // Auto-manage orphaned hedges
+```
+
+**What are orphaned hedges?**
+- Hedges that remain open after primary order closed
+- Hedges from pairs that broke due to manual intervention
+- Isolated hedge positions without tracking
+
+**Auto-close conditions:**
+- Hedge shows profit >= half of minimum close threshold
+- Hedge shows excessive loss (> 3x minimum threshold)
+- Hedge open for more than 12 hours
+- No primary orders exist in account
+- CloseAllOrders() now closes hedge orders too
 
 ### 4. **Configurable Magic Number** 🔢
 Hedge orders use offset magic number for easy identification.
@@ -66,6 +86,24 @@ HedgeMagicOffset = 1000  // Hedge magic = 4466 + 1000 = 5466
 - Separate tracking and management
 - Compatible with multi-EA setups
 
+## Version 1.8.1 Update - Improved Hedge Management
+
+**What's Fixed:**
+- ✅ Orphaned hedges are now automatically detected and managed
+- ✅ `CloseAllOrders()` now closes both regular and hedge orders
+- ✅ Hedge pairs properly close when primary order is manually closed
+- ✅ Added `AutoCloseOrphanedHedges` parameter for control
+- ✅ Enhanced pair tracking with better closure logic
+
+**Problem Solved:**
+> "During tests, when hedging is activated, hedge orders remain open and isolated, and the robot cannot close them."
+
+**Solution:**
+- New `ManageOrphanedHedges()` function runs every 3 seconds
+- Automatically identifies hedges without corresponding primary orders
+- Closes orphaned hedges based on multiple conditions
+- Improved `ManageHedgePairs()` to handle all closure scenarios
+
 ## New Input Parameters
 
 ```mql4
@@ -75,6 +113,7 @@ input double HedgeAtDrawdownPercent = 5.0;  // DD% to trigger hedge
 input bool HedgeOnReversal = true;          // Hedge on reversal signal?
 input bool CloseHedgeOnProfit = true;       // Close when profitable?
 input double HedgeMinProfitToClose = 10.0;  // Min profit to close ($)
+input bool AutoCloseOrphanedHedges = true;  // NEW: Auto-close orphaned hedges?
 input int HedgeMagicOffset = 1000;          // Magic offset for hedges
 ```
 
