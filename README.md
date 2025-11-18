@@ -5,7 +5,19 @@ Golden Retirement EA is a high-performance Expert Advisor designed for MetaTrade
 
 ## Version History
 
-### Version 1.6 (Latest) - Enhanced Consistency & Profitability
+### Version 1.7 (Latest) - Market State Detection & Adaptive Strategy
+**Release Date:** November 2024
+
+**Major Improvements:**
+- ✅ **Enhanced Market State Detection**: Automatically detects Uptrend, Downtrend, and Sideways markets
+- ✅ **Independent Trading Control**: Enable/disable trading for each market state separately
+- ✅ **Multi-Factor Analysis**: Uses ADX, DI, MA, and price range for robust classification
+- ✅ **Visual Dashboard**: Shows current market state with color coding
+- ✅ **Adaptive Strategy**: Profit from all three market movements or focus on specific conditions
+
+[View detailed market state documentation](MARKET_STATE_DETECTION_v1.7.md)
+
+### Version 1.6 - Enhanced Consistency & Profitability
 **Release Date:** November 2024
 
 **Major Improvements:**
